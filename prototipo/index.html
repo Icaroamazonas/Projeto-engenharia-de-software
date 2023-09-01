@@ -4,20 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>News Aggregator</title>
+    <title>Seleção de Países com Pesquisa e Notícias</title>
 </head>
 <body>
-    <header>
-        <h1>News Aggregator</h1>
-        <select id="countrySelect">
-            <option value="br">Brasil</option>
-            <option value="gb">United Kingdom</option>
-            <option value="us">United States</option>
-            
-            <!-- Adicione mais opções de países aqui -->
-        </select>
-    </header>
-    <main id="newsContainer"></main>
+    <h1>Seleção de Países com Pesquisa e Notícias</h1>
+    <div class="autocomplete">
+        <input type="text" id="countryInput" placeholder="Digite um país">
+        <ul id="countryList"></ul>
+    </div>
+
+    <div id="noticiaContent">
+        <!-- O conteúdo da notícia será carregado aqui -->
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
