@@ -1,23 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Seleção de Países com Pesquisa e Notícias</title>
+    <!-- Inclua seus estilos CSS aqui -->
+    <link rel="stylesheet" type="text/css" href="estilos.css">
 </head>
 <body>
-    <h1>Seleção de Países com Pesquisa e Notícias</h1>
-    <div class="autocomplete">
+    <header>
+        <h1>Minha Página Inicial</h1>
+    </header>
+
+    <!-- Barra de Pesquisa -->
+    <div class="barra-de-pesquisa">
         <input type="text" id="countryInput" placeholder="Digite um país">
         <ul id="countryList"></ul>
     </div>
 
-    <div id="noticiaContent">
-        <!-- O conteúdo da notícia será carregado aqui -->
+    <!-- Seção de Notícias -->
+    <div class="noticias">
+        <h2>Notícias</h2>
+        <!-- Aqui é onde as notícias serão exibidas dinamicamente usando JavaScript -->
+        <div id="newsContainer"></div>
     </div>
 
+    <!-- Inclua seus scripts JavaScript aqui -->
     <script src="script.js"></script>
 </body>
 </html>
-
