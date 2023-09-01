@@ -1,10 +1,9 @@
 /* script.js */
-const countrySelect = document.getElementById('countrySelect');
+const countryInput = document.getElementById('countryInput');
+const suggestions = document.getElementById('suggestions');
 const newsContainer = document.getElementById('newsContainer');
-const countryInput = document.getElementById('countryInput'); // Novo elemento de entrada para pesquisa de países
-const suggestions = document.getElementById('suggestions'); // Elemento para exibir sugestões
 
-const API_KEY = 'e2795791a80d4d3b93e50de8a80b1e62'; // Substitua pelo seu API Key
+const API_KEY = 'e2795791a80d4d3b93e50de8a80b1e62';
 const API_URL = 'https://newsapi.org/v2/top-headlines';
 
 async function fetchNews(countryCode) {
@@ -32,36 +31,30 @@ async function displayNews(countryCode) {
 }
 
 // Evento de digitação para atualizar as sugestões enquanto digita
-countryInput.addEventListener('input', () => {
+countryInput.addEventListener('input', async () => {
     const inputText = countryInput.value.toLowerCase();
-    const filteredCountries = countries.filter(country =>
-        country.toLowerCase().includes(inputText)
-    );
-
+    const response = await fetch('https://restcountries.com/v3.1/name/' + inputText);
+    const countries = await response.json();
+    
     // Limpa as sugestões atuais
     suggestions.innerHTML = '';
 
     // Adiciona as sugestões à lista
-    filteredCountries.forEach(country => {
+    countries.forEach(country => {
         const suggestionItem = document.createElement('div');
-        suggestionItem.textContent = country;
-        suggestionItem.addEventListener('click', () => {
-            countryInput.value = country;
+        suggestionItem.textContent = country.name.common;
+        suggestionItem.addEventListener('click', async () => {
+            countryInput.value = country.name.common;
             suggestions.innerHTML = ''; // Limpa as sugestões quando um país é selecionado
-            displayNews(country); // Exibe notícias do país selecionado
+            displayNews(country.cca2); // Exibe notícias do país selecionado
         });
         suggestions.appendChild(suggestionItem);
     });
 });
 
-// Evento de seleção de país para exibir as notícias
-countrySelect.addEventListener('change', () => {
-    const countryCode = countrySelect.value;
-    displayNews(countryCode);
-});
-
 // Carrega as notícias ao carregar a página com um país padrão (por exemplo, "US" para os Estados Unidos)
 const defaultCountry = 'US';
 displayNews(defaultCountry);
+
 
 
