@@ -1,7 +1,6 @@
 // script.js
 const countrySelect = document.getElementById('countrySelect');
 const newsContainer = document.getElementById('newsContainer');
-const countryInput = document.getElementById('countryInput'); // Novo elemento de entrada para pesquisa de países
 
 const API_KEY = 'e2795791a80d4d3b93e50de8a80b1e62'; // Substitua pelo seu API Key
 const API_URL = 'https://newsapi.org/v2/top-headlines';
@@ -12,8 +11,7 @@ async function fetchNews(countryCode) {
     return data.articles;
 }
 
-async function displayNews() {
-    const countryCode = countrySelect.value || countryInput.value; // Use a entrada de país selecionada ou digitada
+async function displayNews(countryCode) {
     const news = await fetchNews(countryCode);
 
     newsContainer.innerHTML = ''; // Limpa o conteúdo anterior
@@ -31,6 +29,18 @@ async function displayNews() {
     });
 }
 
-countrySelect.addEventListener('change', displayNews);
-countryInput.addEventListener('input', displayNews); // Adicione um evento de digitação para atualizar as notícias
-displayNews(); // Carrega as notícias ao carregar a página ou ao selecionar/digitar um país.
+countrySelect.addEventListener('change', () => {
+    const countryCode = countrySelect.value;
+    displayNews(countryCode);
+});
+
+// Evento de digitação para atualizar as notícias enquanto digita o país
+countrySelect.addEventListener('input', () => {
+    const countryCode = countrySelect.value;
+    displayNews(countryCode);
+});
+
+// Carrega as notícias ao carregar a página com um país padrão (por exemplo, "US" para os Estados Unidos)
+const defaultCountry = 'US';
+displayNews(defaultCountry);
+
