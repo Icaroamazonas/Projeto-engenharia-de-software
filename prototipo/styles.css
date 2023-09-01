@@ -1,10 +1,12 @@
 /* styles.css */
+/* Estilos CSS para o corpo da página */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 
+/* Estilos CSS para o cabeçalho */
 header {
     background-color: #333;
     color: white;
@@ -12,29 +14,28 @@ header {
     text-align: center;
 }
 
+/* Estilos CSS para o título h1 no cabeçalho */
 h1 {
     margin: 0;
 }
 
-select {
+/* Estilos CSS para a barra de pesquisa */
+.barra-de-pesquisa {
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Estilos CSS para a entrada de texto da barra de pesquisa */
+.barra-de-pesquisa input {
+    width: 300px;
     padding: 5px;
     border: none;
-    background-color: #444;
-    color: white;
+    background-color: #f2f2f2;
+    font-size: 16px;
 }
 
-/* Estilos CSS para a caixa de seleção */
-.autocomplete {
-    position: relative;
-    display: inline-block;
-}
-
-.autocomplete input {
-    width: 200px;
-    padding: 5px;
-}
-
-.autocomplete ul {
+/* Estilos CSS para a lista de sugestões de países */
+.barra-de-pesquisa ul {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -43,13 +44,44 @@ select {
     border: 1px solid #ccc;
     max-height: 150px;
     overflow-y: auto;
+    width: 300px;
+    text-align: left;
 }
 
-.autocomplete li {
+/* Estilos CSS para cada item da lista de sugestões de países */
+.barra-de-pesquisa li {
     padding: 5px;
     cursor: pointer;
 }
 
-.autocomplete li:hover {
-    background-color: #f0f0f0;
+/* Estilos CSS para o contêiner de notícias */
+.noticias {
+    margin: 20px;
+}
+
+/* Estilos CSS para cada item de notícia */
+.noticias .news-item {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f2f2f2;
+}
+
+/* Estilos CSS para a imagem da notícia */
+.noticias .news-item img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Estilos CSS para o título da notícia */
+.noticias .news-item h2 {
+    margin: 10px 0;
+}
+
+/* Estilos CSS para o link "Leia Mais" */
+.noticias .news-item a {
+    display: block;
+    text-align: right;
+    text-decoration: none;
+    color: #0077cc;
 }
