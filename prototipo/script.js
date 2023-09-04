@@ -38,7 +38,7 @@ async function displayNewsGeneral() {
 
     news.forEach(article => {
         const newsItem = document.createElement('div');
-        newsItem.classList.add('general-news-item');
+        newsItem.classList.add('news-item');
         newsItem.innerHTML = `
             <img src="${article.urlToImage}" alt="${article.title}">
             <h2>${article.title}</h2>
