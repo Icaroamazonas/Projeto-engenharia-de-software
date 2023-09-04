@@ -6,9 +6,9 @@ const allCountryCodes = ['ae', 'ar', 'at', 'au', 'be', 'bg', 'br', 'ca', 'ch', '
 const API_KEY = 'e2795791a80d4d3b93e50de8a80b1e62';
 const API_URL = 'https://newsapi.org/v2/top-headlines';
 
-async function fetchRandomCountryCode(l) {
+async function fetchRandomCountryCode(numberOfCodes) {
     const randomCountryCodes = [];
-    while (randomCountryCodes.length < l) {
+    while (randomCountryCodes.length < numberOfCodes) {
         const randomIndex = Math.floor(Math.random() * 54); // gera um numero aleatório que está dentro do tamanho da lista de países suportados pela NewsAPI (54)
         const randomCountryCode = allCountryCodes[randomIndex]; 
         /* adiciona o país a lista de países aleatórios caso não já esteja dentro dela */
@@ -46,10 +46,8 @@ async function fetchNewsGeneral() {
     }
 }
 
-// Evento de carregamento da página para buscar as notícias gerais
-window.addEventListener('load', () => {
-    fetchNewsGeneral();
-});
+fetchNewsGeneral();
+
 
 
 
