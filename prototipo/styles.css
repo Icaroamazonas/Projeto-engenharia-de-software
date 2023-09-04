@@ -19,48 +19,13 @@ h1 {
     margin: 0;
 }
 
-/* Estilos CSS para a barra de pesquisa */
-.barra-de-pesquisa {
-    text-align: center;
-    margin: 20px 0;
-}
-
-/* Estilos CSS para a entrada de texto da barra de pesquisa */
-.barra-de-pesquisa input {
-    width: 300px;
-    padding: 5px;
-    border: none;
-    background-color: #f2f2f2;
-    font-size: 16px;
-}
-
-/* Estilos CSS para a lista de sugestões de países */
-.barra-de-pesquisa ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    position: absolute;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    max-height: 150px;
-    overflow-y: auto;
-    width: 300px;
-    text-align: left;
-}
-
-/* Estilos CSS para cada item da lista de sugestões de países */
-.barra-de-pesquisa li {
-    padding: 5px;
-    cursor: pointer;
-}
-
 /* Estilos CSS para o contêiner de notícias */
-.noticias {
+.noticias-container {
     margin: 20px;
 }
 
 /* Estilos CSS para cada item de notícia */
-.noticias .news-item {
+.noticias-container .news-item {
     margin-bottom: 20px;
     padding: 10px;
     border: 1px solid #ccc;
@@ -68,18 +33,18 @@ h1 {
 }
 
 /* Estilos CSS para a imagem da notícia */
-.noticias .news-item img {
+.noticias-container .news-item img {
     max-width: 100%;
     height: auto;
 }
 
 /* Estilos CSS para o título da notícia */
-.noticias .news-item h2 {
+.noticias-container .news-item h2 {
     margin: 10px 0;
 }
 
 /* Estilos CSS para o link "Leia Mais" */
-.noticias .news-item a {
+.noticias-container .news-item a {
     display: block;
     text-align: right;
     text-decoration: none;
