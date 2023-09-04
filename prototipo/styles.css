@@ -1,4 +1,8 @@
 /* styles.css */
+/* Declaração de cores globais */
+:root {
+    --light-gray:#333;
+}
 /* Estilos CSS para o corpo da página */
 body {
     font-family: Arial, sans-serif;
@@ -8,7 +12,7 @@ body {
 
 /* Estilos CSS para o cabeçalho */
 header {
-    background-color: #333;
+    background-color:var(--light-gray);
     color: white;
     padding: 10px 0;
     text-align: center;
@@ -21,10 +25,13 @@ h1 {
 
 /* Estilos CSS para a barra de pesquisa */
 .barra-de-pesquisa {
-    text-align: center;
+    display: grid;
     margin: 20px 0;
 }
-
+#countryInput, #suggestions {
+    margin-left: auto;
+    margin-right: auto;
+    }
 /* Estilos CSS para a entrada de texto da barra de pesquisa */
 .barra-de-pesquisa input {
     width: 300px;
@@ -39,7 +46,6 @@ h1 {
     list-style: none;
     padding: 0;
     margin: 0;
-    position: absolute;
     background-color: #fff;
     border: 1px solid #ccc;
     max-height: 150px;
@@ -85,3 +91,52 @@ h1 {
     text-decoration: none;
     color: #0077cc;
 }
+/* Estilos CSS do logo */
+.site-logo{
+    height: 200px;
+}
+/* Estilos CSS do sidebar */
+.sidebar-menu{
+    width: 0px;
+    position: fixed;
+    background-color: var(--light-gray);
+    height: 100%;
+    min-height: 450px;
+    overflow-y: hidden;
+    top: 0;
+    transition: 0.5s;
+}
+.sidebar-close{
+    position: absolute;
+    font-size: 3em;
+    color: white;
+    right: 0;
+    margin-right: 30px;
+}
+.hamburguer-menu{
+    font-size: 2em;
+    margin-left: 15px;
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+.heading{
+    display: flex;
+}
+.heading-title{
+    width: 100%;
+}
+.sidebar-links{
+    display: flex;
+    flex-direction: column;
+}
+.sidebar-links > a{
+    color: white;
+    font-size: 1em;
+    margin: 10px 0px 10px 10px;
+    text-decoration: none;
+}
+.sidebar-links > a:hover{
+    color:blanchedalmond;
+}
+/* Fim dos estilos CSS do sidebar*/

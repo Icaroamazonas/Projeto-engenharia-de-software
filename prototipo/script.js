@@ -56,5 +56,14 @@ countryInput.addEventListener('input', async () => {
 const defaultCountry = 'US';
 displayNews(defaultCountry);
 
+// Funções do sidebar
+function openSidebar(e){
+    document.getElementById("sidebar").style.width = "350px";
+    document.getElementsByTagName('body')[0].style.overflow = "hidden";
+}
+function closeSidebar(e){
+    document.getElementById("sidebar").style.width = "0px";
+    document.getElementsByTagName('body')[0].style.overflow = "unset";
 
-
+}
+//fim das funções do sidebar
