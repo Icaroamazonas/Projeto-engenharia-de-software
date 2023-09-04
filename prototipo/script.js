@@ -20,33 +20,36 @@ async function fetchRandomCountryCode(numberOfCodes) {
 }
 
 async function fetchNewsGeneral() {
-    try {
-        const countryCodes = await fetchRandomCountryCodes(3);
-        const noticiasContainer = document.getElementById('noticias-container');
-        noticiasContainer.innerHTML = ''; // Limpa o conteúdo anterior
+    const countryCodes = await fetchRandomCountryCodes(3);
+    const listOfArticles = [];
 
-        for (const countryCode of countryCodes) {
-            const response = await fetch(`${API_URL}?country=${countryCode}&category=general&apiKey=${API_KEY}`);
-            const data = await response.json();
-            const article = data.articles[0]; // Pega a primeira notícia
-
-            // Exiba a notícia no elemento de conteúdo
-            const noticiasItem = document.createElement('div');
-            noticiasItem.classList.add('news-item');
-            noticiasItem.innerHTML = `
-                <img src="${article.urlToImage}" alt="${article.title}">
-                <h2>${article.title}</h2>
-                <p>${article.description}</p>
-                <a href="${article.url}" target="_blank">Leia Mais</a>
-            `;
-            noticiasContainer.appendChild(noticiasItem);
+    for (const countryCode of countryCodes) {
+        const response = await fetch(`${API_URL}?country=${countryCode}&category=general&apiKey=${API_KEY}`);
+        const data = await response.json();
+        const listOfArticles.push(data.articles[0]); // Pega a primeira notícia
         }
-    } catch (error) {
-        console.error('Erro ao buscar notícias:', error);
-    }
+    return listOfArticles;
 }
 
-fetchNewsGeneral();
+async function displayNewsGeneral() {
+    const news = await fetchNewsGeneral();
+
+    newsContainer.innerHTML = ''; // Limpa o conteúdo anterior
+
+    news.forEach(article => {
+        const newsItem = document.createElement('div');
+        newsItem.classList.add('general-news-item');
+        newsItem.innerHTML = `
+            <img src="${article.urlToImage}" alt="${article.title}">
+            <h2>${article.title}</h2>
+            <p>${article.description}</p>
+            <a href="${article.url}" target="_blank">Read More</a>
+        `;
+        newsContainer.appendChild(newsItem);
+    });
+}
+
+displayNewsGeneral();
 
 
 
