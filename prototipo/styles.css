@@ -25,7 +25,7 @@ h1 {
 }
 
 /* Estilos CSS para cada item de notícia */
-.noticias-container .news-item {
+.noticias .news-item {
     margin-bottom: 20px;
     padding: 10px;
     border: 1px solid #ccc;
@@ -33,18 +33,18 @@ h1 {
 }
 
 /* Estilos CSS para a imagem da notícia */
-.noticias-container .news-item img {
+.noticias .news-item img {
     max-width: 100%;
     height: auto;
 }
 
 /* Estilos CSS para o título da notícia */
-.noticias-container .news-item h2 {
+.noticias .news-item h2 {
     margin: 10px 0;
 }
 
 /* Estilos CSS para o link "Leia Mais" */
-.noticias-container .news-item a {
+.noticias .news-item a {
     display: block;
     text-align: right;
     text-decoration: none;
