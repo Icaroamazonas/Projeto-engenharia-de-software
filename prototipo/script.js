@@ -26,7 +26,7 @@ async function fetchNewsGeneral() {
     for (const countryCode of countryCodes) {
         const response = await fetch(`${API_URL}?country=${countryCode}&category=general&apiKey=${API_KEY}`);
         const data = await response.json();
-        const listOfArticles.push(data.articles[0]); // Pega a primeira notícia
+        listOfArticles.push(data.articles[0]); // Pega a primeira notícia
         }
     return listOfArticles;
 }
