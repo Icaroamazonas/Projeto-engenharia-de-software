@@ -2,14 +2,54 @@
 const countryInput = document.getElementById('countryInput');
 const suggestions = document.getElementById('suggestions');
 const newsContainer = document.getElementById('newsContainer');
-
+const AllCountryCodes = ['ae', 'ar', 'at', 'au', 'be', 'bg', 'br', 'ca', 'ch', 'cn', 'co', 'cu', 'cz', 'de', 'eg', 'fr', 'gb', 'gr', 'hk', 'hu', 'id', 'ie', 'il', 'in', 'it', 'jp', 'kr', 'lt', 'lv', 'ma', 'mx', 'my', 'ng', 'nl', 'no', 'nz', 'ph', 'pl', 'pt', 'ro', 'rs', 'ru', 'sa', 'se', 'sg', 'si', 'sk', 'th', 'tr', 'tw', 'ua', 'us', 've', 'za'];
 const API_KEY = 'e2795791a80d4d3b93e50de8a80b1e62';
 const API_URL = 'https://newsapi.org/v2/top-headlines';
+
+async function fetchRandomCountryCode(l) {
+    const randomCountryCodes = [];
+    while (randomCountryCodes.length < l) {
+        const randomIndex = Math.floor(Math.random() * 54); // gera um numero aleatório que está dentro do tamanho da lista de países suportados pela NewsAPI (54)
+        const randomCountryCode = allCountryCodes[randomIndex]; 
+        /* adiciona o país a lista de países aleatórios caso não já esteja dentro dela */
+        if (!randomCountryCodes.includes(randomCountryCode)) {
+            randomCountryCodes.push(randomCountryCode);
+        }
+    }
+    return randomCountryCodes;
+}
 
 async function fetchNews(countryCode) {
     const response = await fetch(`${API_URL}?country=${countryCode}&apiKey=${API_KEY}`);
     const data = await response.json();
     return data.articles;
+}
+
+async function fetchNewsGeneral() {
+    try {
+        const countryCodes = await fetchRandomCountryCodes(3);
+        const noticiasContainer = document.getElementById('noticias-container');
+        noticiasContainer.innerHTML = ''; // Limpa o conteúdo anterior
+
+        for (const countryCode of countryCodes) {
+            const response = await fetch(`${API_URL}?country=${countryCode}&category=general&apiKey=${API_KEY}`);
+            const data = await response.json();
+            const article = data.articles[0]; // Pega a primeira notícia
+
+            // Exiba a notícia no elemento de conteúdo
+            const noticiasItem = document.createElement('div');
+            noticiasItem.classList.add('news-item');
+            noticiasItem.innerHTML = `
+                <img src="${article.urlToImage}" alt="${article.title}">
+                <h2>${article.title}</h2>
+                <p>${article.description}</p>
+                <a href="${article.url}" target="_blank">Leia Mais</a>
+            `;
+            noticiasContainer.appendChild(noticiasItem);
+        }
+    } catch (error) {
+        console.error('Erro ao buscar notícias:', error);
+    }
 }
 
 async function displayNews(countryCode) {
@@ -52,9 +92,7 @@ countryInput.addEventListener('input', async () => {
     });
 });
 
-// Carrega as notícias ao carregar a página com um país padrão (por exemplo, "US" para os Estados Unidos)
-const defaultCountry = 'US';
-displayNews(defaultCountry);
+fetchNewsGeneral();
 
 
 
