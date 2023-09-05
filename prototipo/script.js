@@ -42,7 +42,7 @@ async function displayNews(category, categoryContainer, numberOfCodes) {
 
     news.forEach(article => {
         const newsItem = document.createElement('div');
-        newsItem.classList.add('news-item');
+        newsItem.classList.add('grid');
         newsItem.innerHTML = `
             <img src="${article.urlToImage}" alt="${article.title}">
             <h2>${article.title}</h2>
