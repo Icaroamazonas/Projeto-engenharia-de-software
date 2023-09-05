@@ -19,7 +19,7 @@ h1 {
 }
 
 /* Estilos CSS para o contêiner de notícias */
-.grid {
+.noticias .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
@@ -34,18 +34,18 @@ h1 {
 }
 
 /* Estilos CSS para a imagem da notícia */
-.grid img {
+.noticias .grid img {
     max-width: 100%;
     height: auto;
 }
 
 /* Estilos CSS para o título da notícia */
-.grid h2 {
+.noticias .grid h2 {
     margin: 10px 0;
 }
 
 /* Estilos CSS para o link "Leia Mais" */
-.grid a {
+.noticias .grid a {
     display: block;
     text-align: right;
     text-decoration: none;
