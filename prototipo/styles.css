@@ -27,7 +27,7 @@ h1 {
 }
 
 /* Estilos CSS para cada item de notícia */
-.grid {
+.noticias .grid {
     padding: 10px;
     border: 1px solid #ccc;
     background-color: #f2f2f2;
