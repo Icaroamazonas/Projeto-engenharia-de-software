@@ -34,7 +34,7 @@ async function fetchNews(category, numberOfCodes) {
     
     for (const countryCode of countryCodes) {
         // Espere 2 segundos antes de fazer a próxima solicitação para evitar o limite de taxa
-        await delay(2000);
+        await delay(5000);
         const response = await fetch(`${API_URL}?country=${countryCode}&category=${category}&apiKey=${API_KEY}`);
         const data = await response.json();
         listOfArticles.push(data.articles[0]); // Pega a primeira notícia
