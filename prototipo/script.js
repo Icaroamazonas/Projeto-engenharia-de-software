@@ -6,9 +6,13 @@ const healthNewsContainer = document.getElementById('category-health');
 const scienceNewsContainer = document.getElementById('category-science');
 const sportsNewsContainer = document.getElementById('category-sports');
 const technologyNewsContainer = document.getElementById('category-technology');
+
 const allCountryCodes = ['ae', 'ar', 'at', 'au', 'be', 'bg', 'br', 'ca', 'ch', 'cn', 'co', 'cu', 'cz', 'de', 'eg', 'fr', 'gb', 'gr', 'hk', 'hu', 'id', 'ie', 'il', 'in', 'it', 'jp', 'kr', 'lt', 'lv', 'ma', 'mx', 'my', 'ng', 'nl', 'no', 'nz', 'ph', 'pl', 'pt', 'ro', 'rs', 'ru', 'sa', 'se', 'sg', 'si', 'sk', 'th', 'tr', 'tw', 'ua', 'us', 've', 'za'];
+
 const API_KEY = 'e2795791a80d4d3b93e50de8a80b1e62';
 const API_URL = 'https://newsapi.org/v2/top-headlines';
+// Objeto para armazenar em cache os resultados da API
+const cache = {};
 
 async function fetchRandomCountryCodes(numberOfCodes) {
     const randomCountryCodes = [];
@@ -31,12 +35,21 @@ function delay(ms) {
 async function fetchNews(category, numberOfCodes) {
     const countryCodes = await fetchRandomCountryCodes(numberOfCodes);
     const listOfArticles = [];
-    
+
     for (const countryCode of countryCodes) {
-        // Espere 2 segundos antes de fazer a próxima solicitação para evitar o limite de taxa
-        await delay(5000);
-        const response = await fetch(`${API_URL}?country=${countryCode}&category=${category}&apiKey=${API_KEY}`);
-        const data = await response.json();
+        const cacheKey = `${countryCode}-${category}`;
+        
+        // Verifica se os dados já estão em cache
+        if (cache[cacheKey]) {
+            listOfArticles.push(cache[cacheKey]);
+        } else {
+            // Se não estiver em cache, faça a solicitação à API
+            const response = await fetch(`${API_URL}?country=${countryCode}&category=${category}&apiKey=${API_KEY}`);
+            const data = await response.json();
+            const article = data.articles[0]; // Pega a primeira notícia
+            
+            // Armazena os dados em cache para uso futuro
+            cache[cacheKey] = article;
         listOfArticles.push(data.articles[0]); // Pega a primeira notícia
         }
     return listOfArticles;
@@ -60,7 +73,6 @@ async function displayNews(category, categoryContainer, numberOfCodes) {
     });
 }
 
-
 window.addEventListener('load', () => {
     displayNews('general', generalNewsContainer, 3);
     displayNews('business', businessNewsContainer, 2);
@@ -70,6 +82,3 @@ window.addEventListener('load', () => {
     displayNews('sports', sportsNewsContainer, 2);
     displayNews('technology', technologyNewsContainer, 2);
 });
-
-
-
