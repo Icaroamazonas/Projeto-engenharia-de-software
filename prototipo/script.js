@@ -52,6 +52,7 @@ async function fetchNews(category, numberOfCodes) {
             cache[cacheKey] = article;
         listOfArticles.push(data.articles[0]); // Pega a primeira notícia
         }
+    }
     return listOfArticles;
 }
 
