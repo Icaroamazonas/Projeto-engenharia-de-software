@@ -57,10 +57,10 @@ async function displayNews(category, categoryContainer, numberOfCodes) {
 displayNews('general', generalNewsContainer, 3);
 displayNews('business', businessNewsContainer, 2);
 displayNews('entertainment', entertainmentNewsContainer, 2);
-displayNews('health', healthNewsContainer, 2)
-displayNews('science', scienceNewsContainer, 2)
-displayNews('sports', sportsNewsContainer, 2)
-displayNews('technology', technologyNewsContainer, 2)
+displayNews('health', healthNewsContainer, 2);
+displayNews('science', scienceNewsContainer, 2);
+displayNews('sports', sportsNewsContainer, 2);
+displayNews('technology', technologyNewsContainer, 2);
 
 
 
