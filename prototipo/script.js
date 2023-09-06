@@ -23,11 +23,18 @@ async function fetchRandomCountryCodes(numberOfCodes) {
     return randomCountryCodes;
 }
 
+// Função para esperar um certo período de tempo antes de fazer a próxima solicitação
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 async function fetchNews(category, numberOfCodes) {
     const countryCodes = await fetchRandomCountryCodes(numberOfCodes);
     const listOfArticles = [];
-
+    
     for (const countryCode of countryCodes) {
+        // Espere 2 segundos antes de fazer a próxima solicitação para evitar o limite de taxa
+        await delay(2000);
         const response = await fetch(`${API_URL}?country=${countryCode}&category=${category}&apiKey=${API_KEY}`);
         const data = await response.json();
         listOfArticles.push(data.articles[0]); // Pega a primeira notícia
@@ -54,13 +61,15 @@ async function displayNews(category, categoryContainer, numberOfCodes) {
 }
 
 
-displayNews('general', generalNewsContainer, 3);
-displayNews('business', businessNewsContainer, 2);
-displayNews('entertainment', entertainmentNewsContainer, 2);
-displayNews('health', healthNewsContainer, 2);
-displayNews('science', scienceNewsContainer, 2);
-displayNews('sports', sportsNewsContainer, 2);
-displayNews('technology', technologyNewsContainer, 2);
+window.addEventListener('load', () => {
+    displayNews('general', generalNewsContainer, 3);
+    displayNews('business', businessNewsContainer, 2);
+    displayNews('entertainment', entertainmentNewsContainer, 2);
+    displayNews('health', healthNewsContainer, 2);
+    displayNews('science', scienceNewsContainer, 2);
+    displayNews('sports', sportsNewsContainer, 2);
+    displayNews('technology', technologyNewsContainer, 2);
+});
 
 
 
