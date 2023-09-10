@@ -6,49 +6,59 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Minha Página Inicial</h1>
+    <header class="heading">
+        <a onclick="openSidebar()" class="hamburguer-menu cursor-pointer">&#x2630;</a>
+        <h1 class="heading-title">TrendScoop</h1>
     </header>
-
+    <div class="sidebar-menu" id="sidebar">
+        <a class="sidebar-close cursor-pointer" onclick="closeSidebar()">&times;</a>
+        <img src="./assets/trendscoopLogo.png" class="logo"/>
+        <div class="sidebar-links">
+            <a class="sidebar-link" href="https://www.google.com">Google</a>
+            <a class="sidebar-link" href="https://www.facebook.com">Facebook</a>
+            <a class="sidebar-link" href="https://www.reddit.com">Reddit</a>
+            <a class="sidebar-link" href="https://www.twitter.com">x</a>    
+        </div>
+    </div>
     <!-- Seção de Notícias Gerais -->
     <div class="noticias">
-        <h2>Notícias Gerais</h2>
+        <h2>Gerais</h2>
         <div id="category-general" class="grid"></div>
     </div>
 
     <!-- Seção de Notícias de Negócios -->
     <div class="noticias">
-        <h2>Notícias de Negócios</h2>
+        <h2>Negócios</h2>
         <div id="category-business" class="grid"></div>
     </div>
 
     <!-- Seção de Notícias de Entretenimento -->
     <div class="noticias">
-        <h2>Notícias de Entretenimento</h2>
+        <h2>Entretenimento</h2>
         <div id="category-entertainment" class="grid"></div>
     </div>
 
     <!-- Seção de Notícias de Saúde -->
     <div class="noticias">
-        <h2>Notícias de Saúde</h2>
+        <h2>Saúde</h2>
         <div id="category-health" class="grid"></div>
     </div>
 
     <!-- Seção de Notícias de Ciência -->
     <div class="noticias">
-        <h2>Notícias de Ciência</h2>
+        <h2>Ciência</h2>
         <div id="category-science" class="grid"></div>
     </div>
 
     <!-- Seção de Notícias de Esportes -->
     <div class="noticias">
-        <h2>Notícias de Esportes</h2>
+        <h2>Esportes</h2>
         <div id="category-sports" class="grid"></div>
     </div>
 
     <!-- Seção de Notícias de Tecnologia -->
     <div class="noticias">
-        <h2>Notícias de Tecnologia</h2>
+        <h2>Tecnologia</h2>
         <div id="category-technology" class="grid"></div>
     </div>
 
