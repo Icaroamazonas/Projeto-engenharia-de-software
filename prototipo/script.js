@@ -36,23 +36,33 @@ async function displayNews(country, category, categoryContainer, qtdArtigos) {
     let artigosEncontrados = 0;
     categoryContainer.innerHTML = ''; // Limpa o conteúdo anterior
 
-    news.forEach(article => {
-        // Verifica se o artigo já foi exibido (compara pelo título)
-        if (!displayedArticleTitles[article.title] && article.urlToImage && artigosEncontrados < qtdArtigos) {
-            const newsItem = document.createElement('div');
-            newsItem.classList.add('grid');
-            newsItem.innerHTML = `
-                <img src="${article.urlToImage}" alt="${article.title}">
-                <h2>${article.title}</h2>
-                <p>${article.description}</p>
+    news?.forEach((article) => {
+      // Verifica se o artigo já foi exibido (compara pelo título)
+      if (
+        !displayedArticleTitles[article.title] &&
+        artigosEncontrados < qtdArtigos
+      ) {
+        const newsItem = document.createElement("div");
+        newsItem.classList.add("grid");
+        newsItem.innerHTML = null;
+        article.urlToImage
+          ? (newsItem.innerHTML += `<img src="${article.urlToImage}" alt="${article.title}">`)
+          : (newsItem.innerHTML += `<img src="https://i.pinimg.com/736x/f9/58/18/f95818f914844d2b1cf7a45b232061d1.jpg" alt="${article.title}">`);
+        newsItem.innerHTML += `
+              <h2>${article.title}</h2>
+            `;
+        article.description
+          ? (newsItem.innerHTML += `<p>${article.description}</p>`)
+          : "";
+        newsItem.innerHTML += `
                 <a href="${article.url}" target="_blank">Leia Mais</a>
             `;
-            categoryContainer.appendChild(newsItem);
+        categoryContainer.appendChild(newsItem);
 
-            // Marca o título do artigo como exibido
-            displayedArticleTitles[article.title] = true;
-            artigosEncontrados++;
-        }
+        // Marca o título do artigo como exibido
+        displayedArticleTitles[article.title] = true;
+        artigosEncontrados++;
+      }
     });
 }
 
@@ -66,16 +76,24 @@ function closeSidebar(e){
     document.getElementsByTagName('body')[0].style.overflow = "unset";
 
 }
+function handleCountry(e){
+    const selectedCountryCode = e.target.dataset['countryCode'];
+    var url = new URL('/',window.location.origin);
+    url.searchParams.set('cc',selectedCountryCode);
+    window.location.href = url.href;
+}
 //fim das funções do sidebar
 
 // Carrega as notícias ao carregar a página com um país padrão (por exemplo, "US" para os Estados Unidos)
 const defaultCountry = 'US';
 window.addEventListener('load', () => {
-    displayNews(defaultCountry, 'general', generalNewsContainer, 4);
-    displayNews(defaultCountry, 'business', businessNewsContainer, 4);
-    displayNews(defaultCountry, 'entertainment', entertainmentNewsContainer, 4);
-    displayNews(defaultCountry, 'health', healthNewsContainer, 4);
-    displayNews(defaultCountry, 'science', scienceNewsContainer, 4);
-    displayNews(defaultCountry, 'sports', sportsNewsContainer, 4);
-    displayNews(defaultCountry, 'technology', technologyNewsContainer, 4);
+    const urlParams = new URLSearchParams(window.location.search);
+    const countryCodeParam = urlParams.get('cc') ? urlParams.get('cc') : defaultCountry;
+    displayNews(countryCodeParam, 'general', generalNewsContainer, 4);
+    displayNews(countryCodeParam, 'business', businessNewsContainer, 4);
+    displayNews(countryCodeParam, 'entertainment', entertainmentNewsContainer, 4);
+    displayNews(countryCodeParam, 'health', healthNewsContainer, 4);
+    displayNews(countryCodeParam, 'science', scienceNewsContainer, 4);
+    displayNews(countryCodeParam, 'sports', sportsNewsContainer, 4);
+    displayNews(countryCodeParam, 'technology', technologyNewsContainer, 4);
 });

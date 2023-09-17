@@ -91,6 +91,10 @@ h1 {
 .heading-title{
     width: 100%;
 }
+.heading-title a{
+    all:unset;
+    cursor: pointer;
+}
 .sidebar-links{
     display: flex;
     flex-direction: column;
@@ -103,5 +107,13 @@ h1 {
 }
 .sidebar-links > a:hover{
     color:blanchedalmond;
+}
+button.sidebar-link{
+    all:unset;
+    text-align: center;
+  color: #fafafa;
+  font-size: 1.2rem;
+  margin-top: 10px;
+  cursor: pointer;
 }
 /* Fim dos estilos CSS do sidebar*/

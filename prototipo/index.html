@@ -2,22 +2,23 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <title>TrendScoop</title>
     <!-- Inclua seus estilos CSS aqui -->
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
     <header class="heading">
         <a onclick="openSidebar()" class="hamburguer-menu cursor-pointer">&#x2630;</a>
-        <h1 class="heading-title">TrendScoop</h1>
+        <h1 class="heading-title"><a href="/">TrendScoop</a></h1>
     </header>
     <div class="sidebar-menu" id="sidebar">
         <a class="sidebar-close cursor-pointer" onclick="closeSidebar()">&times;</a>
         <img src="./assets/trendscoopLogo.png" class="logo"/>
         <div class="sidebar-links">
-            <a class="sidebar-link" href="https://www.google.com">Google</a>
-            <a class="sidebar-link" href="https://www.facebook.com">Facebook</a>
-            <a class="sidebar-link" href="https://www.reddit.com">Reddit</a>
-            <a class="sidebar-link" href="https://www.twitter.com">x</a>    
+            <button class="sidebar-link" data-country-code="br" onclick="handleCountry(event)">🇧🇷 - Brasil</a>
+            <button class="sidebar-link" data-country-code="us" onclick="handleCountry(event)">🇺🇸 - Estados Unidos</a>
+            <button class="sidebar-link" data-country-code="ar" onclick="handleCountry(event)">🇦🇷 - Argentina</a>
+            <button class="sidebar-link" data-country-code="sa" onclick="handleCountry(event)">🇸🇦 - Arábia Saudita</a>    
         </div>
     </div>
     <!-- Seção de Notícias Gerais -->
