@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+  
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="UTF-8">
+
     <!-- Inclua seus estilos CSS aqui -->
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <!-- Inclua seus scripts JavaScript aqui -->
+    <script src="script.js" async defer></script>
+
 </head>
 <body>
     <header class="heading">
@@ -20,6 +26,13 @@
             <a class="sidebar-link" href="https://www.twitter.com">x</a>    
         </div>
     </div>
+
+    <!-- Barra de Pesquisa -->
+    <div class="barra-de-pesquisa">
+        <input type="text" id="countryInput" autocomplete="off" placeholder="Digite um país">
+        <ul id="suggestions" class="cursor-pointer">
+        </ul>
+      
     <!-- Seção de Notícias Gerais -->
     <div class="noticias">
         <h2>Gerais</h2>
@@ -61,8 +74,5 @@
         <h2>Tecnologia</h2>
         <div id="category-technology" class="grid"></div>
     </div>
-
-    <!-- Inclua seus scripts JavaScript aqui -->
-    <script src="script.js"></script>
 </body>
 </html>

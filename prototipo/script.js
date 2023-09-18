@@ -79,3 +79,4 @@ window.addEventListener('load', () => {
     displayNews(defaultCountry, 'sports', sportsNewsContainer, 4);
     displayNews(defaultCountry, 'technology', technologyNewsContainer, 4);
 });
+

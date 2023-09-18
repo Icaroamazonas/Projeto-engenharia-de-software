@@ -12,7 +12,7 @@ body {
 
 /* Estilos CSS para o cabeçalho */
 header {
-    background-color: #333;
+    background-color:var(--light-gray);
     color: white;
     padding: 10px 0;
     text-align: center;
@@ -21,6 +21,44 @@ header {
 /* Estilos CSS para o título h1 no cabeçalho */
 h1 {
     margin: 0;
+}
+
+
+/* Estilos CSS para a barra de pesquisa */
+.barra-de-pesquisa {
+    display: grid;
+    margin: 20px 0;
+}
+#countryInput, #suggestions {
+    margin-left: auto;
+    margin-right: auto;
+    }
+/* Estilos CSS para a entrada de texto da barra de pesquisa */
+.barra-de-pesquisa input {
+    width: 300px;
+    padding: 5px;
+    border: none;
+    background-color: #f2f2f2;
+    font-size: 16px;
+}
+
+/* Estilos CSS para a lista de sugestões de países */
+.barra-de-pesquisa ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    max-height: 150px;
+    overflow-y: auto;
+    width: 300px;
+    text-align: left;
+}
+
+/* Estilos CSS para cada item da lista de sugestões de países */
+.barra-de-pesquisa li {
+    padding: 5px;
+    cursor: pointer;
 }
 
 /* Estilos CSS para o contêiner de notícias */
