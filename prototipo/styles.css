@@ -23,6 +23,7 @@ h1 {
     margin: 0;
 }
 
+
 /* Estilos CSS para a barra de pesquisa */
 .barra-de-pesquisa {
     display: grid;
@@ -61,31 +62,33 @@ h1 {
 }
 
 /* Estilos CSS para o contêiner de notícias */
-.noticias {
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
     margin: 20px;
 }
 
 /* Estilos CSS para cada item de notícia */
-.noticias .news-item {
-    margin-bottom: 20px;
+.grid {
     padding: 10px;
     border: 1px solid #ccc;
     background-color: #f2f2f2;
 }
 
 /* Estilos CSS para a imagem da notícia */
-.noticias .news-item img {
+.grid img {
     max-width: 100%;
     height: auto;
 }
 
 /* Estilos CSS para o título da notícia */
-.noticias .news-item h2 {
+.grid h2 {
     margin: 10px 0;
 }
 
 /* Estilos CSS para o link "Leia Mais" */
-.noticias .news-item a {
+.grid a {
     display: block;
     text-align: right;
     text-decoration: none;
