@@ -9,7 +9,8 @@ const technologyNewsContainer = document.getElementById('category-technology');
 
 const allCountryCodes = ['ae', 'ar', 'at', 'au', 'be', 'bg', 'br', 'ca', 'ch', 'cn', 'co', 'cu', 'cz', 'de', 'eg', 'fr', 'gb', 'gr', 'hk', 'hu', 'id', 'ie', 'il', 'in', 'it', 'jp', 'kr', 'lt', 'lv', 'ma', 'mx', 'my', 'ng', 'nl', 'no', 'nz', 'ph', 'pl', 'pt', 'ro', 'rs', 'ru', 'sa', 'se', 'sg', 'si', 'sk', 'th', 'tr', 'tw', 'ua', 'us', 've', 'za'];
 
-const API_KEY2 = '00715f1f32b94859aac4e24f0825a205'
+const API_KEY3 = '4a84afc4eb144b3f8106d1e9dbc25f1c';
+const API_KEY2 = '00715f1f32b94859aac4e24f0825a205';
 const API_KEY1 = 'e2795791a80d4d3b93e50de8a80b1e62';
 const API_KEY = 'd091d89b51e242a5ab49f8721a8cad77';
 const API_URL = 'https://newsapi.org/v2/top-headlines';
@@ -19,14 +20,29 @@ const suggestions = document.getElementById('suggestions');
 // Objeto para armazenar em cache os resultados da API
 const displayedArticleTitles = {};
 
+const cache = {}; // Objeto para armazenar em cache as notícias
+
+
 // Função para esperar um certo período de tempo antes de fazer a próxima solicitação
 function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+// Função para buscar notícias, com cache
 async function fetchNews(country, category) {
-    const response = await fetch(`${API_URL}?country=${country}&category=${category}&apiKey=${API_KEY2}`);
+    const cacheKey = `${country}-${category}`;
+    const cachedData = localStorage.getItem(cacheKey);
+
+    if (cachedData) {
+        return JSON.parse(cachedData);
+    }
+
+    const response = await fetch(`${API_URL}?country=${country}&category=${category}&apiKey=${API_KEY3}`);
     const data = await response.json();
+
+    // Armazena os dados em cache no localStorage
+    localStorage.setItem(cacheKey, JSON.stringify(data.articles));
+
     await delay(1000);
     return data.articles;
 }
