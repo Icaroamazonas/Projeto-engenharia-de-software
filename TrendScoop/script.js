@@ -31,7 +31,7 @@ function delay(ms) {
 }
 
 async function fetchNews(country, category, maxArticles) {
-  const response = await fetch(`${API_URL}?country=${country}&category=${category}&apiKey=${API_KEY1}`);
+  const response = await fetch(`${API_URL}?country=${country}&category=${category}&apiKey=${API_KEY4}`);
   const data = await response.json();
 
   // Filtra as notícias para conter no máximo `maxArticles` e ter imagem
