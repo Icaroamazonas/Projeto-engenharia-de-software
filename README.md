@@ -1,6 +1,5 @@
 # TrendScoop - Sua Fonte de Notícias Globais
 
-![TrendScoop Logo](./assets/trendscoopLogo.png)
 
 ## Sobre o Projeto
 
