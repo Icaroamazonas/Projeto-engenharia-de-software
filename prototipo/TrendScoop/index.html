@@ -1,86 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notícias</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8" />
+
+    <!-- estilo CSS -->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <!-- script JavaScript -->
+    <script src="script.js" async defer></script>
 </head>
 <body>
     <header class="heading">
-        <a onclick="openSidebar()" class="hamburguer-menu cursor-pointer">&#x2630;</a>
         <h1 class="heading-title">TrendScoop</h1>
     </header>
-    <div class="sidebar-menu" id="sidebar">
-        <a class="sidebar-close cursor-pointer" onclick="closeSidebar()">&times;</a>
-        <img src="./assets/trendscoopLogo.png" class="logo"/>
-        <div class="sidebar-links">
-            <a class="sidebar-link" href="https://www.google.com">Google</a>
-            <a class="sidebar-link" href="https://www.facebook.com">Facebook</a>
-            <a class="sidebar-link" href="https://www.reddit.com">Reddit</a>
-            <a class="sidebar-link" href="https://www.twitter.com">x</a>    
-        </div>
-    </div>
 
-    <!-- Barra de Pesquisa -->
-    <div class="barra-de-pesquisa">
-        <input type="text" id="countryInput" autocomplete="off" placeholder="Digite um país">
-        <ul id="suggestions" class="cursor-pointer">
-        </ul>
-    </div>
-
-    <!-- Adicione a seção de configurações -->
-    <div class="configuracoes">
-        <label for="countrySelect">Escolha o país da tela inicial:</label>
-        <select id="countrySelect">
-            <option value="US">Estados Unidos</option>
-            <option value="GB">Reino Unido</option>
-            <!-- Adicione mais opções de países conforme necessário -->
+    <!-- Seção de Personalização -->
+    <div class="personalization">
+        <h3>Personalização</h3>
+        <label for="country-select">Selecione seu país:</label>
+        <select id="country-select">
+            <option value="us">Estados Unidos</option>
+            <option value="ca">Canadá</option>
+            <!-- Adicione mais países conforme necessário -->
         </select>
-        <button id="saveSettingsButton">Salvar Configurações</button>
+        <button id="save-button">Salvar</button>
     </div>
-      
+
     <!-- Seção de Notícias Gerais -->
     <div class="noticias">
         <h2>Gerais</h2>
         <div id="category-general" class="grid"></div>
     </div>
 
-    <!-- Seção de Notícias de Negócios -->
+    <!-- Seção de Notícias de Outras Categorias -->
     <div class="noticias">
-        <h2>Negócios</h2>
-        <div id="category-business" class="grid"></div>
+        <div class="categoria-header">
+            <h2 id="categoria-titulo"></h2>
+            <button id="categoria-anterior" class="categoria-button">&#9664; Anterior</button>
+            <button id="categoria-proxima" class="categoria-button">Próxima &#9654;</button>
+        </div>
+        <div id="category-other" class="grid"></div>
     </div>
-
-    <!-- Seção de Notícias de Entretenimento -->
-    <div class="noticias">
-        <h2>Entretenimento</h2>
-        <div id="category-entertainment" class="grid"></div>
-    </div>
-
-    <!-- Seção de Notícias de Saúde -->
-    <div class="noticias">
-        <h2>Saúde</h2>
-        <div id="category-health" class="grid"></div>
-    </div>
-
-    <!-- Seção de Notícias de Ciência -->
-    <div class="noticias">
-        <h2>Ciência</h2>
-        <div id="category-science" class="grid"></div>
-    </div>
-
-    <!-- Seção de Notícias de Esportes -->
-    <div class="noticias">
-        <h2>Esportes</h2>
-        <div id="category-sports" class="grid"></div>
-    </div>
-
-    <!-- Seção de Notícias de Tecnologia -->
-    <div class="noticias">
-        <h2>Tecnologia</h2>
-        <div id="category-technology" class="grid"></div>
-    </div>
-    <script src="script.js"></script>
 </body>
 </html>
