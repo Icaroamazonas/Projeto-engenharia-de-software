@@ -91,7 +91,16 @@ h1 {
 }
 
 /* Estilos CSS para notícias grandes */
+.big-news {
+    grid-column-end: span 3; /* Ocupa 3 colunas */
+    grid-row-end: span 4; /* Ocupa 4 linhas */
+}
 
+/* Estilos CSS para notícias pequenas */
+.small-news {
+    grid-column-end: span 2; /* Ocupa 2 colunas */
+    grid-row-end: span 1; /* Ocupa 1 linha */
+}
 
 /* Estilos CSS para a Parte de Cima (Categoria Geral) */
 .big-news {
