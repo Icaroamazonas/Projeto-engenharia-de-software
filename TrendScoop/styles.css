@@ -1,7 +1,11 @@
 /* styles.css */
 /* Declaração de cores globais */
 :root {
-    --light-gray:#333;
+    --primary-color: #0073e6; /* Cor principal do site */
+    --secondary-color: #333; /* Cor secundária do site */
+    --light-gray: #f2f2f2; /* Cor de fundo clara */
+    --dark-gray: #333; /* Cor de texto escura */
+    --white: #fff; /* Cor de texto branca */
 }
 
 /* Estilos CSS para o corpo da página */
@@ -9,19 +13,24 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: var(--light-gray);
+    color: var(--dark-gray);
 }
 
 /* Estilos CSS para o cabeçalho */
 header {
-    background-color:#0073e6;;
-    color: white;
-    padding: 10px 0;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 20px 0;
     text-align: center;
+    position: relative;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 /* Estilos CSS para o título h1 no cabeçalho */
 h1 {
     margin: 0;
+    font-size: 36px;
 }
 
 /* Estilos CSS para o contêiner de notícias */
@@ -82,16 +91,7 @@ h1 {
 }
 
 /* Estilos CSS para notícias grandes */
-.big-news {
-    grid-column-end: span 3; /* Ocupa 3 colunas */
-    grid-row-end: span 4; /* Ocupa 4 linhas */
-}
 
-/* Estilos CSS para notícias pequenas */
-.small-news {
-    grid-column-end: span 2; /* Ocupa 2 colunas */
-    grid-row-end: span 1; /* Ocupa 1 linha */
-}
 
 /* Estilos CSS para a Parte de Cima (Categoria Geral) */
 .big-news {
@@ -129,7 +129,81 @@ h1 {
     border-radius: 10px;
 }
 
-/* Estilos CSS do logo */
-.site-logo{
-    height: 200px;
+/* Estilos CSS do sidebar */
+.sidebar-menu {
+    width: 300px;
+    position: fixed;
+    background-color: var(--primary-color);
+    height: 100%;
+    min-height: 450px;
+    overflow-y: auto; 
+    top: 0;
+    transition: 0.5s;
+    z-index: 1;
+}
+
+}
+
+.sidebar-close {
+    position: absolute;
+    font-size: 2em;
+    color: var(--white);
+    right: 0;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.hamburguer-menu {
+    font-size: 2em;
+    margin-left: 15px;
+    color: var(--white);
+    cursor: pointer;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.heading {
+    display: flex;
+    align-items: center;
+}
+
+.heading-title {
+    width: 100%;
+    text-align: center;
+}
+
+.heading-title a {
+    all: unset;
+    cursor: pointer;
+    color: var(--white);
+    font-size: 24px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.sidebar-links {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.sidebar-link {
+    all: unset;
+    text-align: left;
+    color: var(--white);
+    font-size: 1.2rem;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/* Fim dos estilos CSS do sidebar */
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+    padding: 0;
 }

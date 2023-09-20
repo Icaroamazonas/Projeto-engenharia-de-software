@@ -66,3 +66,4 @@ Abra seu navegador da web e acesse o URL local fornecido (por exemplo, "http://l
 ---
 
 **TrendScoop** - Seu agregador de Notícias Populares Globais
+

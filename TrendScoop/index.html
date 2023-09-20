@@ -1,18 +1,79 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8" />
-
-    <!-- estilo CSS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TrendScoop</title>
+    <!-- Inclua seus estilos CSS aqui -->
     <link rel="stylesheet" type="text/css" href="styles.css">
     <!-- script JavaScript -->
     <script src="script.js" async defer></script>
 </head>
 <body>
     <header class="heading">
-        <h1 class="heading-title">TrendScoop</h1>
+        <a onclick="openSidebar()" class="hamburguer-menu cursor-pointer">&#x2630;</a>
+        <h1 class="heading-title"><a href="/">TrendScoop</a></h1>
     </header>
-
+    <div class="sidebar-menu" id="sidebar">
+        <a class="sidebar-close cursor-pointer" onclick="closeSidebar()">&times;</a>
+        <h1 class="logo">Selecione o país:</h1>
+        <div class="sidebar-links">
+            <button class="sidebar-link" data-country-code="ae" onclick="handleCountry(event)">🇦🇪 - Emirados Árabes Unidos</button>
+            <button class="sidebar-link" data-country-code="ar" onclick="handleCountry(event)">🇦🇷 - Argentina</button>
+            <button class="sidebar-link" data-country-code="at" onclick="handleCountry(event)">🇦🇹 - Áustria</button>
+            <button class="sidebar-link" data-country-code="au" onclick="handleCountry(event)">🇦🇺 - Austrália</button>
+            <button class="sidebar-link" data-country-code="be" onclick="handleCountry(event)">🇧🇪 - Bélgica</button>
+            <button class="sidebar-link" data-country-code="bg" onclick="handleCountry(event)">🇧🇬 - Bulgária</button>
+            <button class="sidebar-link" data-country-code="br" onclick="handleCountry(event)">🇧🇷 - Brasil</button>
+            <button class="sidebar-link" data-country-code="ca" onclick="handleCountry(event)">🇨🇦 - Canadá</button>
+            <button class="sidebar-link" data-country-code="ch" onclick="handleCountry(event)">🇨🇭 - Suíça</button>
+            <button class="sidebar-link" data-country-code="cn" onclick="handleCountry(event)">🇨🇳 - China</button>
+            <button class="sidebar-link" data-country-code="co" onclick="handleCountry(event)">🇨🇴 - Colômbia</button>
+            <button class="sidebar-link" data-country-code="cu" onclick="handleCountry(event)">🇨🇺 - Cuba</button>
+            <button class="sidebar-link" data-country-code="cz" onclick="handleCountry(event)">🇨🇿 - República Tcheca</button>
+            <button class="sidebar-link" data-country-code="de" onclick="handleCountry(event)">🇩🇪 - Alemanha</button>
+            <button class="sidebar-link" data-country-code="eg" onclick="handleCountry(event)">🇪🇬 - Egito</button>
+            <button class="sidebar-link" data-country-code="fr" onclick="handleCountry(event)">🇫🇷 - França</button>
+            <button class="sidebar-link" data-country-code="gb" onclick="handleCountry(event)">🇬🇧 - Reino Unido</button>
+            <button class="sidebar-link" data-country-code="gr" onclick="handleCountry(event)">🇬🇷 - Grécia</button>
+            <button class="sidebar-link" data-country-code="hk" onclick="handleCountry(event)">🇭🇰 - Hong Kong</button>
+            <button class="sidebar-link" data-country-code="hu" onclick="handleCountry(event)">🇭🇺 - Hungria</button>
+            <button class="sidebar-link" data-country-code="id" onclick="handleCountry(event)">🇮🇩 - Indonésia</button>
+            <button class="sidebar-link" data-country-code="ie" onclick="handleCountry(event)">🇮🇪 - Irlanda</button>
+            <button class="sidebar-link" data-country-code="il" onclick="handleCountry(event)">🇮🇱 - Israel</button>
+            <button class="sidebar-link" data-country-code="in" onclick="handleCountry(event)">🇮🇳 - Índia</button>
+            <button class="sidebar-link" data-country-code="it" onclick="handleCountry(event)">🇮🇹 - Itália</button>
+            <button class="sidebar-link" data-country-code="jp" onclick="handleCountry(event)">🇯🇵 - Japão</button>
+            <button class="sidebar-link" data-country-code="kr" onclick="handleCountry(event)">🇰🇷 - Coreia do Sul</button>
+            <button class="sidebar-link" data-country-code="lt" onclick="handleCountry(event)">🇱🇹 - Lituânia</button>
+            <button class="sidebar-link" data-country-code="lv" onclick="handleCountry(event)">🇱🇻 - Letônia</button>
+            <button class="sidebar-link" data-country-code="ma" onclick="handleCountry(event)">🇲🇦 - Marrocos</button>
+            <button class="sidebar-link" data-country-code="mx" onclick="handleCountry(event)">🇲🇽 - México</button>
+            <button class="sidebar-link" data-country-code="my" onclick="handleCountry(event)">🇲🇾 - Malásia</button>
+            <button class="sidebar-link" data-country-code="ng" onclick="handleCountry(event)">🇳🇬 - Nigéria</button>
+            <button class="sidebar-link" data-country-code="nl" onclick="handleCountry(event)">🇳🇱 - Holanda</button>
+            <button class="sidebar-link" data-country-code="no" onclick="handleCountry(event)">🇳🇴 - Noruega</button>
+            <button class="sidebar-link" data-country-code="nz" onclick="handleCountry(event)">🇳🇿 - Nova Zelândia</button>
+            <button class="sidebar-link" data-country-code="ph" onclick="handleCountry(event)">🇵🇭 - Filipinas</button>
+            <button class="sidebar-link" data-country-code="pl" onclick="handleCountry(event)">🇵🇱 - Polônia</button>
+            <button class="sidebar-link" data-country-code="pt" onclick="handleCountry(event)">🇵🇹 - Portugal</button>
+            <button class="sidebar-link" data-country-code="ro" onclick="handleCountry(event)">🇷🇴 - Romênia</button>
+            <button class="sidebar-link" data-country-code="rs" onclick="handleCountry(event)">🇷🇸 - Sérvia</button>
+            <button class="sidebar-link" data-country-code="ru" onclick="handleCountry(event)">🇷🇺 - Rússia</button>
+            <button class="sidebar-link" data-country-code="sa" onclick="handleCountry(event)">🇸🇦 - Arábia Saudita</button>
+            <button class="sidebar-link" data-country-code="se" onclick="handleCountry(event)">🇸🇪 - Suécia</button>
+            <button class="sidebar-link" data-country-code="sg" onclick="handleCountry(event)">🇸🇬 - Singapura</button>
+            <button class="sidebar-link" data-country-code="si" onclick="handleCountry(event)">🇸🇮 - Eslovênia</button>
+            <button class="sidebar-link" data-country-code="sk" onclick="handleCountry(event)">🇸🇰 - Eslováquia</button>
+            <button class="sidebar-link" data-country-code="th" onclick="handleCountry(event)">🇹🇭 - Tailândia</button>
+            <button class="sidebar-link" data-country-code="tr" onclick="handleCountry(event)">🇹🇷 - Turquia</button>
+            <button class="sidebar-link" data-country-code="tw" onclick="handleCountry(event)">🇹🇼 - Taiwan</button>
+            <button class="sidebar-link" data-country-code="ua" onclick="handleCountry(event)">🇺🇦 - Ucrânia</button>
+            <button class="sidebar-link" data-country-code="us" onclick="handleCountry(event)">🇺🇸 - Estados Unidos</button>
+            <button class="sidebar-link" data-country-code="ve" onclick="handleCountry(event)">🇻🇪 - Venezuela</button>
+            <button class="sidebar-link" data-country-code="za" onclick="handleCountry(event)">🇿🇦 - África do Sul</button>
+        </div>              
+    </div>
     <!-- Seção de Notícias Gerais -->
     <div class="noticias">
         <h2>Gerais</h2>
@@ -30,6 +91,3 @@
     </div>
 </body>
 </html>
-
-
-
