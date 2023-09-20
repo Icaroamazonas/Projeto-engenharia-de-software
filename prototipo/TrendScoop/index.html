@@ -1,14 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  
-    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8" />
-
-    <!-- estilo CSS -->
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <!-- script JavaScript -->
-    <script src="script.js" async defer></script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notícias</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header class="heading">
@@ -31,6 +27,18 @@
         <input type="text" id="countryInput" autocomplete="off" placeholder="Digite um país">
         <ul id="suggestions" class="cursor-pointer">
         </ul>
+    </div>
+
+    <!-- Adicione a seção de configurações -->
+    <div class="configuracoes">
+        <label for="countrySelect">Escolha o país da tela inicial:</label>
+        <select id="countrySelect">
+            <option value="US">Estados Unidos</option>
+            <option value="GB">Reino Unido</option>
+            <!-- Adicione mais opções de países conforme necessário -->
+        </select>
+        <button id="saveSettingsButton">Salvar Configurações</button>
+    </div>
       
     <!-- Seção de Notícias Gerais -->
     <div class="noticias">
@@ -73,5 +81,6 @@
         <h2>Tecnologia</h2>
         <div id="category-technology" class="grid"></div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
