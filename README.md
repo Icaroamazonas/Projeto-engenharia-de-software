@@ -1,4 +1,4 @@
-# TrendScoop - Sua Fonte de Notícias Globais
+# TrendScoop - Seu agregador de Notícias Populares Globais
 
 
 ## Sobre o Projeto
