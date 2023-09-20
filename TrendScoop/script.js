@@ -15,6 +15,7 @@ const categoriaTitulo = document.getElementById('categoria-titulo');
 const categoriaAnterior = document.getElementById('categoria-anterior');
 const categoriaProxima = document.getElementById('categoria-proxima');
 
+const API_KEY4 = '543a6d8c1adc4b9e944877c1cff28ce4'; 
 const API_KEY3 = '4a84afc4eb144b3f8106d1e9dbc25f1c';
 const API_KEY2 = '00715f1f32b94859aac4e24f0825a205';
 const API_KEY1 = 'e2795791a80d4d3b93e50de8a80b1e62';
