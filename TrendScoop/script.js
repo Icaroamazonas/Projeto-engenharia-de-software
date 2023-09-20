@@ -98,6 +98,11 @@ function openSidebar(e){
   document.getElementsByTagName('body')[0].style.overflow = "hidden";
 }
 
+ function closeSidebar(e){
+    document.getElementById("sidebar").style.width = "0px";
+    document.getElementsByTagName('body')[0].style.overflow = "unset";
+}
+
 // Função para fechar a barra lateral inicialmente
 function closeSidebarInitially() {
   document.getElementById("sidebar").style.width = "0px";
