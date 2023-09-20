@@ -33,6 +33,36 @@ Se você deseja contribuir para o desenvolvimento do TrendScoop, fique à vontad
 
 Sua criatividade é o limite, fique à vontade para iterar em cima do que iniciamos!
 
+## Instruções de como rodar o programa:
+
+Certifique-se de que você tem o Node.js instalado no seu sistema. Se você não tiver, você pode baixá-lo e instalá-lo a partir do site oficial do Node.js: https://nodejs.org/.
+
+1. Clone o Repositório:
+
+   ```bash
+   git clone (https://github.com/Icaroamazonas/Projeto-engenharia-de-software)
+
+2. Navegue até o Diretório do Projeto:
+   ```bash
+   cd caminho-local-do-repositorio
+   ```
+   Não esqueça de substituir "caminho-local-do-repositorio" pelo caminho em que o repositório foi salvo em seu computador.
+   
+3. Instale o "http-server" Globalmente:
+   ```bash
+   npm install -g http-server
+   ```
+4. Inicie o Servidor Local:
+Use o seguinte comando para iniciar o servidor local na porta 5500 (ou em uma porta de sua escolha):
+   ```bash
+   http-server -p 5500
+   ```
+Isso iniciará o servidor na porta especificada e fornecerá um URL local, geralmente algo como "http://localhost:5500".
+
+5. Acesse o Programa:
+
+Abra seu navegador da web e acesse o URL local fornecido (por exemplo, "http://localhost:5500") para visualizar e interagir com o programa.
+
 ---
 
 **TrendScoop** - Seu agregador de Notícias Populares Globais
