@@ -1,98 +1,51 @@
-/* script.js */
-const generalNewsContainer = document.getElementById('category-general');
-const businessNewsContainer = document.getElementById('category-business');
-const entertainmentNewsContainer = document.getElementById('category-entertainment');
-const healthNewsContainer = document.getElementById('category-health');
-const scienceNewsContainer = document.getElementById('category-science');
-const sportsNewsContainer = document.getElementById('category-sports');
-const technologyNewsContainer = document.getElementById('category-technology');
+// Recupere a escolha do usuário do localStorage ou use um valor padrão
+const userCountry = localStorage.getItem('userCountry') || 'US';
+const countrySelect = document.getElementById('countrySelect');
+const saveSettingsButton = document.getElementById('saveSettingsButton');
 
-const allCountryCodes = ['ae', 'ar', 'at', 'au', 'be', 'bg', 'br', 'ca', 'ch', 'cn', 'co', 'cu', 'cz', 'de', 'eg', 'fr', 'gb', 'gr', 'hk', 'hu', 'id', 'ie', 'il', 'in', 'it', 'jp', 'kr', 'lt', 'lv', 'ma', 'mx', 'my', 'ng', 'nl', 'no', 'nz', 'ph', 'pl', 'pt', 'ro', 'rs', 'ru', 'sa', 'se', 'sg', 'si', 'sk', 'th', 'tr', 'tw', 'ua', 'us', 've', 'za'];
+// Configure o valor selecionado no elemento <select>
+countrySelect.value = userCountry;
 
-const API_KEY3 = '4a84afc4eb144b3f8106d1e9dbc25f1c';
-const API_KEY2 = '00715f1f32b94859aac4e24f0825a205';
-const API_KEY1 = 'e2795791a80d4d3b93e50de8a80b1e62';
-const API_KEY = 'd091d89b51e242a5ab49f8721a8cad77';
-const API_URL = 'https://newsapi.org/v2/top-headlines';
-
-const countryInput = document.getElementById('countryInput');
-const suggestions = document.getElementById('suggestions');
-// Objeto para armazenar em cache os resultados da API
-const displayedArticleTitles = {};
-
-const cache = {}; // Objeto para armazenar em cache as notícias
-
+// Adicione um ouvinte de evento para o botão "Salvar Configurações"
+saveSettingsButton.addEventListener('click', () => {
+  // Obtenha o país selecionado pelo usuário
+  const selectedCountry = countrySelect.value;
+  
+  // Armazene a escolha do usuário no localStorage
+  localStorage.setItem('userCountry', selectedCountry);
+  
+  // Recarregue a página para aplicar as novas configurações
+  window.location.reload();
+});
 
 // Função para esperar um certo período de tempo antes de fazer a próxima solicitação
 function delay(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 // Função para buscar notícias, com cache
 async function fetchNews(country, category) {
-    const cacheKey = `${country}-${category}`;
-    const cachedData = localStorage.getItem(cacheKey);
-
-    if (cachedData) {
-        return JSON.parse(cachedData);
-    }
-
-    const response = await fetch(`${API_URL}?country=${country}&category=${category}&apiKey=${API_KEY3}`);
-    const data = await response.json();
-
-    // Armazena os dados em cache no localStorage
-    localStorage.setItem(cacheKey, JSON.stringify(data.articles));
-
-    await delay(1000);
-    return data.articles;
 }
 
 async function displayNews(country, category, categoryContainer, qtdArtigos) {
-    const news = await fetchNews(country, category, qtdArtigos);
-    let artigosEncontrados = 0;
-    categoryContainer.innerHTML = ''; // Limpa o conteúdo anterior
-
-    news.forEach(article => {
-        // Verifica se o artigo já foi exibido (compara pelo título)
-        if (!displayedArticleTitles[article.title] && article.urlToImage && artigosEncontrados < qtdArtigos) {
-            const newsItem = document.createElement('div');
-            newsItem.classList.add('grid');
-            newsItem.innerHTML = `
-                <img src="${article.urlToImage}" alt="${article.title}">
-                <h2>${article.title}</h2>
-                <p>${article.description}</p>
-                <a href="${article.url}" target="_blank">Leia Mais</a>
-            `;
-            categoryContainer.appendChild(newsItem);
-
-            // Marca o título do artigo como exibido
-            displayedArticleTitles[article.title] = true;
-            artigosEncontrados++;
-        }
-    });
 }
 
 // Funções do sidebar
 function openSidebar(e){
-    document.getElementById("sidebar").style.width = "350px";
-    document.getElementsByTagName('body')[0].style.overflow = "hidden";
+    // ... (código anterior)
 }
 function closeSidebar(e){
-    document.getElementById("sidebar").style.width = "0px";
-    document.getElementsByTagName('body')[0].style.overflow = "unset";
-
 }
-//fim das funções do sidebar
 
-// Carrega as notícias ao carregar a página com um país padrão (por exemplo, "US" para os Estados Unidos)
-const defaultCountry = 'US';
+// Carrega as notícias ao carregar a página com o país selecionado pelo usuário
 window.addEventListener('load', () => {
-    displayNews(defaultCountry, 'general', generalNewsContainer, 4);
-    displayNews(defaultCountry, 'business', businessNewsContainer, 4);
-    displayNews(defaultCountry, 'entertainment', entertainmentNewsContainer, 4);
-    displayNews(defaultCountry, 'health', healthNewsContainer, 4);
-    displayNews(defaultCountry, 'science', scienceNewsContainer, 4);
-    displayNews(defaultCountry, 'sports', sportsNewsContainer, 4);
-    displayNews(defaultCountry, 'technology', technologyNewsContainer, 4);
+    // Obtenha o país selecionado pelo usuário do localStorage
+    const userCountry = localStorage.getItem('userCountry') || 'US';
+    
+    displayNews(userCountry, 'general', generalNewsContainer, 4);
+    displayNews(userCountry, 'business', businessNewsContainer, 4);
+    displayNews(userCountry, 'entertainment', entertainmentNewsContainer, 4);
+    displayNews(userCountry, 'health', healthNewsContainer, 4);
+    displayNews(userCountry, 'science', scienceNewsContainer, 4);
+    displayNews(userCountry, 'sports', sportsNewsContainer, 4);
+    displayNews(userCountry, 'technology', technologyNewsContainer, 4);
 });
-
